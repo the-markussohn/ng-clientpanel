@@ -20,6 +20,8 @@ import {SettingsComponent} from './components/settings/settings.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 
+import {ClientService} from './services/client.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,7 @@ import {NavbarComponent} from './components/navbar/navbar.component';
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [ClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
