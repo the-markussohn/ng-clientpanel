@@ -25,4 +25,13 @@ export class AuthService {
       map(auth => auth)
     );
   }
+
+  register(email: string, password: string) {
+    return new Promise((resolved, rejected) => {
+      this._fireAuth.auth.createUserWithEmailAndPassword(email, password)
+        .then(userData => resolved(userData),
+          err => rejected(err));
+    });
+
+  }
 }
