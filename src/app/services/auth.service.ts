@@ -16,6 +16,10 @@ export class AuthService {
     });
   }
 
+  logout() {
+    this._fireAuth.auth.signOut();
+  }
+
   getAuth() {
     return this._fireAuth.authState.pipe(
       map(auth => auth)
