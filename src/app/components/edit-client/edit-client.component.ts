@@ -36,7 +36,14 @@ export class EditClientComponent implements OnInit {
   }
 
   onSubmit({value, valid}: {value: Client, valid: boolean}) {
-
+    if (!valid) {
+      this._messageService.show('Please fill out the form correctly', {cssClass: 'alert-danger', timeout: 4000});
+    } else {
+      value.id = this.id;
+      this._clientService.updateClient(value);
+      this._messageService.show('Client updated', {cssClass: 'alert-success', timeout: 4000});
+      this._router.navigate([`/client/${this.id}`]);
+    }
   }
 
 }
